@@ -1,15 +1,19 @@
 {
-  "presets": ["react", "es2015"],
+  "presets": ["@babel/env","@babel/react"],
   "env": {
     "development": {
       "plugins": [
         ["transform-object-rest-spread"],
-        ["transform-react-display-name"],
+        ["@babel/plugin-transform-react-display-name"],
+        ["@babel/plugin-proposal-export-default-from"],
+        ["@babel/plugin-transform-react-jsx"],
+        ["@babel/plugin-transform-react-jsx-source"],
+         ["@babel/plugin-transform-react-jsx-self"],
         ["react-transform", {
           "transforms": [{
             "transform": "react-transform-hmr",
-            "imports": ["react"],
-            "locals": ["module"]
+            "imports": ["react"]
+
           }, {
             "transform": "react-transform-catch-errors",
             "imports": ["react", "redbox-react"]
@@ -20,7 +24,11 @@
     "production": {
       "plugins": [
         ["transform-object-rest-spread"],
-        ["transform-react-display-name"]
+        ["@babel/plugin-transform-react-display-name"],
+        ["@babel/plugin-proposal-export-default-from"],
+        ["@babel/plugin-transform-react-jsx"],
+        ["@babel/plugin-transform-react-jsx-source"],
+         ["@babel/plugin-transform-react-jsx-self"],
       ]
     }
   }
