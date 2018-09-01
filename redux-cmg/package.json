@@ -35,6 +35,7 @@
     "autoprefixer-stylus": "^0.14.0",
     "poststylus": "^1.0.0",
     "react-redux": "^5.0.7",
+    "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^4.0.0"
   }
 }
