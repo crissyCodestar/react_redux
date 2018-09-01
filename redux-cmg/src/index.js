@@ -4,24 +4,27 @@ import { render } from "react-dom";
 import App from './components/App';
 import PhotoGrid from './components/PhotoGrid';
 import Single from './components/Single';
+import store from './store';
+import history from './store';
 
-import {BrowserRouter} from 'react-router-dom';
-import { Route, Switch, Router} from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { Route, Switch} from 'react-router';
+import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from 'react-redux'
 
-const history = createBrowserHistory();
+
 
 const router = (
-    <BrowserRouter>
-      <Router history={history}>
-        <App>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <div>
+          <App/>
           <Switch>
             <Route exact path="/" component={PhotoGrid}/>
             <Route pathe="/view/:postId" component={Single}/>
           </Switch>
-        </App>
-      </Router>
-    </BrowserRouter>
+        </div>
+      </ConnectedRouter>
+    </Provider>
 )
 
 render(
