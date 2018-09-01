@@ -5,23 +5,25 @@ import App from './components/App';
 import PhotoGrid from './components/PhotoGrid';
 import Single from './components/Single';
 
-import {BrowserRouter, Route} from 'react-router-dom';
-import {Router} from 'react-router';
+import {BrowserRouter} from 'react-router-dom';
+import { Route, Switch, Router} from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 const history = createBrowserHistory();
 
-const routes = (
-  <Router history={history}>
-    <Route path="/" component={App}>
-      <Route exact path="/" component={PhotoGrid}/>
-      <Route path="/view/:postId" component={Single}/>
-    </Route>
-  </Router>
+const router = (
+    <BrowserRouter>
+      <Router history={history}>
+        <App>
+          <Switch>
+            <Route exact path="/" component={PhotoGrid}/>
+            <Route pathe="/view/:postId" component={Single}/>
+          </Switch>
+        </App>
+      </Router>
+    </BrowserRouter>
 )
 
 render(
-  <BrowserRouter>
-    <App/>
-  </BrowserRouter>, document.getElementById("root")
+router, document.getElementById("root")
 )
